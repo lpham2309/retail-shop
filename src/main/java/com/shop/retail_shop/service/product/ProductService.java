@@ -46,27 +46,27 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<Product> getProductsByBrandName(String brandName) {
-        return List.of();
+    public List<Product> getProductsByBrand(String brandName) {
+        return productRepository.findByBrand(brandName);
     }
 
     @Override
     public List<Product> getProductsByCategoryAndBrand(String category, String brandName) {
-
+        return productRepository.findByCategoryAndBrandName(category, brandName);
     }
 
     @Override
     public List<Product> getProductsByName(String productName) {
-        return List.of();
+        return productRepository.findByName(productName);
     }
 
     @Override
     public List<Product> getProductsByNameAndBrand(String productName, String brandName) {
-        return List.of();
+        return productRepository.findByNameAndBrand(productName, brandName);
     }
 
     @Override
     public Long countProductsByNameAndBrand(String brandName, String productName) {
-        return 0;
+        return productRepository.countByNameAndBrand(brandName, productName);
     }
 }
